@@ -8,12 +8,6 @@ hard labels. Includes the two controls every distillation claim needs:
   (b) a hard PSEUDO-LABEL student trained on the same transfer set (isolates the effect
       of extra unlabelled data from the effect of the soft-target information itself)
 
-ENGINEERING NOTE: an early version of this lab used a learning rate tuned for hard-label
-cross-entropy loss directly on the soft-target KL loss. At high temperature (T=4) this
-diverged and gave chance-level accuracy -- which looked like "distillation fails at high
-T", a real and reportable finding, but ONLY once we confirmed it was not a tuning
-artifact by sweeping learning rate at each T. Full sweep included below; always separate
-"the method doesn't work" from "my hyperparameters for the method were wrong".
 """
 import numpy as np, warnings
 warnings.filterwarnings("ignore")
